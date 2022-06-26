@@ -161,6 +161,7 @@ int segment_tree_query(int a,int b)
 {
 	x=a;
 	y=b;
+	assert(a<=b);
 	// DBG(gt);
 	// DBG(x);
 	// DBG(y);
@@ -171,6 +172,7 @@ int segment_tree_query(int a,int b)
 }
 void segment_tree_update(int a,int b)
 {
+	assert(a<=b);
 	x=a;
 	y=b;
 	// DBG(upd);
@@ -207,7 +209,7 @@ int query(int a, int b) {
 	for (; head[a] != head[b]; b = parent[head[b]]) {
 			if (depth[head[a]] > depth[head[b]])
 					swap(a, b);
-			res+=segment_tree_query(pos[head[b]]+1, pos[b]);
+			res+=segment_tree_query(pos[head[b]], pos[b]);
 	}
 	if (depth[a] > depth[b])
 			swap(a, b);
@@ -223,7 +225,7 @@ void update(int a, int b) {
 	for (; head[a] != head[b]; b = parent[head[b]]) {
 			if (depth[head[a]] > depth[head[b]])
 					swap(a, b);
-			segment_tree_update(pos[head[b]]+1, pos[b]);
+			segment_tree_update(pos[head[b]], pos[b]);
 	}
 	if (depth[a] > depth[b])
 			swap(a, b);
