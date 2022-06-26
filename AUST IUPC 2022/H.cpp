@@ -111,8 +111,8 @@ void prop(int u,int l,int r)
 int gt(int u,int l,int r)
 {
 	prop(u,l,r);
-	// if(lazy[u])
-	// 	return 0;
+	if(sum[u]==0)
+		return 0;
 	if(y < l or r < x)
 		return 0;
 	if(x<=l and r <= y)
@@ -126,8 +126,8 @@ int gt(int u,int l,int r)
 void upd(int u,int l,int r)
 {
 	prop(u,l,r);
-	// if(lazy[u])
-	// 	return ;
+	if(sum[u]==0)
+		return ;
 	if(y < l or r < x)
 		return ;
 	if(x<=l and r <= y)
